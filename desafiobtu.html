@@ -1,0 +1,93 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de BTU</title>
+
+    <style>
+        body {
+                font-family: sans-serif;
+            }
+
+
+            .card {
+                width: 30%;
+                margin: 50px auto;
+                background-color: cadetblue;
+                padding: 30px;
+                text-align: center;
+                border-radius: 5px;
+                box-shadow: 1px 1px 20px gray;
+            }
+
+            .card h1 {
+                color: white;
+                font-weight: 300;
+            }
+
+            .card h2 {
+                color: white;
+                font-weight: 300;
+            }
+
+            .card input {
+                width: 100%;
+                margin: 10px 0px;
+                padding: 10px;
+                border: none;
+                border-radius: 10px;
+            }
+
+            .card button {
+                border: none;
+                padding: 10px;
+                margin-top: 10px;
+                border-radius: 10px;
+            }
+
+            .card button:hover {
+                cursor: pointer;
+                background-color: darkgray;
+                color: white;
+                font-weight: 800;
+            }
+    </style>
+</head>
+<body>
+    
+    <div class="card">
+        <h1>Calculadora de BTU</h1>
+        <h2>Área do cômodo (m²)</h2>
+        <input type="number" id="areacomodo">
+    
+
+        <div>
+            <h2>Quantidade de pessoas no cômodo</h2>
+            <input type="number" id="numeropessoas">
+        </div>
+
+        <div>
+            <h2>Quantidade de eletroeletrônicos</h2>
+            <input type="number" id="numeroeletronicos">
+        </div>
+            <button onclick="calculoBtu()">Calcular</button>
+    </div>
+</body>
+<script>
+    function calculoBtu(){
+        let areaString = document.getElementById("areacomodo").value;
+        let numPessoasString = document.getElementById("numeropessoas").value;
+        let numEletronicosString = document.getElementById("numeroeletronicos").value;
+
+        let areaConvertida = parseFloat(areaString);
+        let numPessoasConvertido = parseFloat(numPessoasString);
+        let numEletronicosConvertido = parseFloat(numEletronicosString);
+
+        if (numPessoasConvertido === 1) {
+            let calculo1Pessoa = (areaConvertida * 600) + (numEletronicosConvertido * 600);
+            return window.alert(`O total de BTU de potência que seu cômodo precisa é ${calculo1Pessoa}`);
+        }
+        else {
+            let calculoPessoas = (areaConvertida * 600) + (numPessoasConvertido * 600) + (numEletronicosConvertido * 600);
+            return window.alert(`O total de BTU de potência que seu cômodo precisa é ${calculoPessoas}`);
+        }
+    }
+</script>
