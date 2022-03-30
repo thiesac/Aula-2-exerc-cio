@@ -1,0 +1,30 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Percentual</title>
+    
+
+</head>
+<body>
+    <h1>Calculadora Percentual</h1>
+    <div>
+        <input type="number" placeholder="Número 1" id="numero1">
+    </div>
+    <div>
+        <input type="number" placeholder="Número 2" id="numero2">
+    </div>
+
+    <button onclick="percentual()">%</button>
+</body>
+
+<script>
+    function percentual(){
+        let n1String = document.getElementById("numero1").value;
+        let n2String = document.getElementById("numero2").value;
+
+        let n1Convertido = parseFloat(n1String);
+        let n2Convertido = parseFloat(n2String);
+
+        let porcentagem = (n1Convertido / n2Convertido) * 100;
+        window.alert(`${n1Convertido} é ${porcentagem} % de ${n2Convertido}`);
+    }
+</script>
